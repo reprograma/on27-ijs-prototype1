@@ -1,66 +1,10 @@
-// Você foi escalada para criar o sistema para uma clínica veterinária. 
-// Para isso, precisará criar funções construtoras no modelo Pseudoclassical Instantiation 
-// para quatro tipos e objeto diferentes:
-
-//  Gatos
-//  Cachorros
-//  Animais exóticos
-//  Histórico médico
-// Exemplo de Gato
-// {
-//     nome: "Pipoca",
-//     idade: 18, //em meses
-//     cor: "branco",
-//     castrado: true,
-//     historico: HistoricoMedico
-// }
-// Exemplo de Cachorro
-// {
-//     nome: "Aslam",
-//     idade: 42, //em meses
-//     cor: "preto",
-//     castrado: false,
-//     raça: "srd",
-//     historico: HistoricoMedico
-// }
-// Exemplo de AnimalExotico
-// {
-//     nome: "Iogurte",
-//     idade: 19, //em meses
-//     cor: "branco e laranja",
-//     especie: "hamster",
-//     adulto: true,
-//     historico: HistoricoMedico
-// }
-// Exemplo de HistoricoMedico
-// {
-//     consultas: [9/7/2023, 13/1/2023, 20/7/2022],
-//     vacinas: ["raiva", "v8", "v10"],
-//     procedimentos: [{ tipo: "ultrassom", motivo: "dores"}]
-// }
-
-// Além disso, será necessário criar alguns métodos:
-
-//  Todos os tipos de animais precisam de um método vacinar(), que receba uma nova vacina e adicione no histórico do bichinho.
-//  Todos os animais precisam de um método consultar(), que adicione uma nova consulta ao histórico.
-// As consultas devem ser mantidas em ordem cronológica reversa, sendo a primeira da lista sempre a mais recente.
-//  Gatos precisam do método miar() e cachorros precisam do método latir();
-//  AnimalExotico precisam de um método ehAdulto que retorne true caso o 
-// animal já seja um adulto para a espécie dele e false caso contrário. 
-// Sua implementação pode cobrir apenas as seguintes espécies:
-// Hamster: adulto aos 2 meses
-// Papagaio: adulto aos 3 anos
-// Calopsita: adulto aos 18 meses
-
-
-function AnimalExotico(nome, idade, cor, especie, ehAdulto){
+//AnimalExotico
+function AnimalExotico(nome, idade, cor, especie){
     this.nome = nome;
     this.idade = idade;
     this.cor = cor;
     this.especie = especie;
     this.historico = new HistoricoMedico();
-    // this.ehAdulto = ehAdulto;
-    
 }
 
 AnimalExotico.prototype.ehAdulto = function(){
@@ -76,13 +20,12 @@ AnimalExotico.prototype.ehAdulto = function(){
         return false
     }
 } 
+const animalExotico = new AnimalExotico("Pepe", 13, "amarelo", "calopsita");
+const animalExotico2 = new AnimalExotico("Pipa", 3, "branco", "Hamster");
+animalExotico.ehAdulto()
+animalExotico2.ehAdulto()
 
-
-// Hamster: adulto aos 2 meses
-// Papagaio: adulto aos 3 anos
-// Calopsita: adulto aos 18 meses
-
-
+//Gato
 function Gato(nome, idade, cor, castrado){
     this.nome = nome;
     this.idade = idade;
@@ -94,7 +37,10 @@ function Gato(nome, idade, cor, castrado){
 Gato.prototype.miar = function(){
     console.log(`O gato ${this.nome} esta miando loucamente`)
 } 
+const gato = new Gato("Elvis", 28, "mesclado", true);
+console.log(gato);
 
+//Cachorro
 function Cachorro(nome, idade, cor, castrado, raca){
     this.nome = nome;
     this.idade = idade;
@@ -107,17 +53,16 @@ function Cachorro(nome, idade, cor, castrado, raca){
 Cachorro.prototype.latir = function(){
     console.log(`O cachorro ${this.nome} esta latindo e pulando`)
 } 
+const cachorro = new Cachorro("Theo", 60, "preto e caramelo", false, "yorkshire");
+cachorro.latir()
+console.log(cachorro)
 
-
+//Historico Medico
 function HistoricoMedico(){
     this.consultas = [];
     this.vacinas = [];
     this.procedimentos = [];
 }
-
-//Todos os tipos de animais precisam de um método vacinar(), que receba uma nova vacina e adicione no histórico do bichinho.
-//  Todos os animais precisam de um método consultar(), que adicione uma nova consulta ao histórico. 
-// As consultas devem ser mantidas em ordem cronológica reversa, sendo a primeira da lista sempre a mais recente.
 
 HistoricoMedico.prototype.vacinar = function(vacina){
     this.vacinas.push(vacina)
@@ -129,33 +74,34 @@ HistoricoMedico.prototype.consultar = function(consulta){
     console.log(`A consulta foi realizada em ${this.consultas}`)
 }
 
-HistoricoMedico.prototype.procedimentoRealizado = function(procedimento){
-    this.procedimentos.push(procedimento)
-    console.log(`O procedimento ${this.procedimentos} foi realizado`)
+HistoricoMedico.prototype.realizarProcedimento = function(tipo){
+    this.procedimentos.push(tipo)
+    console.log(`O procedimento ${this.procedimentos} foi realizado por motivo `)
 }
 
-const gato = new Gato("Elvis", 28, "mesclado", true);
-const cachorro = new Cachorro("Theo", 60, "preto e caramelo", false, "yorkshire");
-const animalExotico = new AnimalExotico("Pepe", 13, "amarelo", "calopsita");
-const animalExotico2 = new AnimalExotico("Pipa", 3, "branco", "Hamster");
-const animalExotico3 = new AnimalExotico("Bart", 23, "verde", "papagaio");
+//Procedimento Realizado
+function ProcedimentoRealizado(){
+    this.tipo = [];
+    this.motivo= [];
+}
 
+ProcedimentoRealizado.prototype.exame = function(tipoExame){
+    this.tipo.push(tipoExame)
+    console.log(`O ${this.tipo} foi realizado`)
+}
+
+ProcedimentoRealizado.prototype.justificativa = function(motivo){
+    this.motivo.push(motivo)
+    console.log(`Foi feito o  ${this.tipo} por causa de ${this.motivo} `)
+}
+
+
+animalExotico.historico.consultar("09/21/2023");
+animalExotico.historico.realizarProcedimento("ultrassom", "dor");
 gato.historico.consultar("09/03/2023");
 gato.historico.vacinar("V8");
 gato.historico.consultar("04/23/2023");
 gato.historico.vacinar("V10");
-
-
+console.log(gato)
 cachorro.historico.consultar("09/12/2023");
 cachorro.historico.vacinar("V10");
-
-gato.miar()
-animalExotico3.ehAdulto()
-animalExotico.historico.consultar("09/21/2023");
-animalExotico.historico.procedimentoRealizado("Ultrassom");
-
-console.log(gato);
-console.log(cachorro);
-console.log(animalExotico);
-console.log(animalExotico2);
-console.log(animalExotico3);
