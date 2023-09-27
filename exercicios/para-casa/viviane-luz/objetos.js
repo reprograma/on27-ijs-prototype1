@@ -7,11 +7,11 @@ function Animal(type, name, age, color, castrado){
     this.castrado = castrado;
 
     this.historico = 
-        {
-            consultas: [],
-            vacinas: [],
-            procedimentos: []
-        }
+    {
+        consultas: [9/7/2023, 13/1/2023, 20/7/2022],
+        vacinas: ["raiva", "v8", "v10"],
+        procedimentos: [{ tipo: "ultrassom", motivo: "dores"}]
+    }
     
 
     this.vaccine = function(vacina) {
@@ -34,6 +34,7 @@ function Animal(type, name, age, color, castrado){
             console.log(`O ${this.type} ${this.name} a nova consulta é em`)
         }
     }
+
 }
 
 const animal1 = new Animal('cachorro', 'Maguila', 5, 'caramelo', 'castrado', true);
@@ -46,9 +47,9 @@ console.log(animal1, animal2, animal3);
 animal1.expression();
 animal2.expression();
 animal1.vaccine("v8");
-animal1.consulta('9/7/2023')
+animal1.consulta('9/7/2023');
 
-console.log(`Animal exótico é adulto ${animal3.name}`);
+console.log(`Animal exótico é adulto e se chama ${animal3.name}`);
 
 console.log(`Histórico de consultas para ${animal1.name}`);
 console.log(animal1.historico.consultas);
