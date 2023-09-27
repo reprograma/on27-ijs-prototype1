@@ -20,10 +20,6 @@ AnimalExotico.prototype.ehAdulto = function(){
         return false
     }
 } 
-const animalExotico = new AnimalExotico("Pepe", 13, "amarelo", "calopsita");
-const animalExotico2 = new AnimalExotico("Pipa", 3, "branco", "Hamster");
-animalExotico.ehAdulto()
-animalExotico2.ehAdulto()
 
 //Gato
 function Gato(nome, idade, cor, castrado){
@@ -37,8 +33,6 @@ function Gato(nome, idade, cor, castrado){
 Gato.prototype.miar = function(){
     console.log(`O gato ${this.nome} esta miando loucamente`)
 } 
-const gato = new Gato("Elvis", 28, "mesclado", true);
-console.log(gato);
 
 //Cachorro
 function Cachorro(nome, idade, cor, castrado, raca){
@@ -53,9 +47,6 @@ function Cachorro(nome, idade, cor, castrado, raca){
 Cachorro.prototype.latir = function(){
     console.log(`O cachorro ${this.nome} esta latindo e pulando`)
 } 
-const cachorro = new Cachorro("Theo", 60, "preto e caramelo", false, "yorkshire");
-cachorro.latir()
-console.log(cachorro)
 
 //Historico Medico
 function HistoricoMedico(){
@@ -70,38 +61,22 @@ HistoricoMedico.prototype.vacinar = function(vacina){
 }
 
 HistoricoMedico.prototype.consultar = function(consulta){
-    this.consultas.push(consulta).sort
+    this.consultas.unshift(consulta)
     console.log(`A consulta foi realizada em ${this.consultas}`)
 }
 
-HistoricoMedico.prototype.realizarProcedimento = function(tipo){
-    this.procedimentos.push(tipo)
-    console.log(`O procedimento ${this.procedimentos} foi realizado por motivo `)
+HistoricoMedico.prototype.realizarProcedimento = function(tipo, motivo){
+
+    let procedimento = new ProcedimentoRealizado(tipo, motivo)
+
+    this.procedimentos.push(procedimento)
+    console.log(`O procedimento ${tipo} foi realizado por motivo ${motivo} `)
 }
 
-//Procedimento Realizado
-function ProcedimentoRealizado(){
-    this.tipo = [];
-    this.motivo= [];
+function ProcedimentoRealizado(tipo, motivo ){
+    this.tipo = tipo;
+    this.motivo= motivo;
 }
 
-ProcedimentoRealizado.prototype.exame = function(tipoExame){
-    this.tipo.push(tipoExame)
-    console.log(`O ${this.tipo} foi realizado`)
-}
+module.exports = { Gato, Cachorro, AnimalExotico };
 
-ProcedimentoRealizado.prototype.justificativa = function(motivo){
-    this.motivo.push(motivo)
-    console.log(`Foi feito o  ${this.tipo} por causa de ${this.motivo} `)
-}
-
-
-animalExotico.historico.consultar("09/21/2023");
-animalExotico.historico.realizarProcedimento("ultrassom", "dor");
-gato.historico.consultar("09/03/2023");
-gato.historico.vacinar("V8");
-gato.historico.consultar("04/23/2023");
-gato.historico.vacinar("V10");
-console.log(gato)
-cachorro.historico.consultar("09/12/2023");
-cachorro.historico.vacinar("V10");
