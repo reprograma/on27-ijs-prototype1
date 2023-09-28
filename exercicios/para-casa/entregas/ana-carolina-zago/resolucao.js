@@ -3,7 +3,7 @@ function Gatos(nome, idade, cor, castrado) {
     this.idade = idade;
     this.cor = cor;
     this.castrado = castrado;
-    // this.historico = historico;
+    this.historico = new HistoricoMedico;
 };
 
 function Cachorros(nome, idade, cor, castrado, raça) {
@@ -12,29 +12,23 @@ function Cachorros(nome, idade, cor, castrado, raça) {
     this.cor = cor;
     this.castrado = castrado;
     this.raça = raça;
-    // this.historico = historico;
+    this.historico = new HistoricoMedico;
 };
 
-function AnimaisExoticos(nome, idade, cor, especie, adulto, historico) {
+function AnimaisExoticos(nome, idade, cor, especie, adulto) {
     this.nome = nome;
     this.idade = idade;
     this.cor = cor;
     this.especie = especie;
     this.adulto = adulto;
-    // this.historico = historico;
+    this.historico = new HistoricoMedico;
 };
 
-// function HistoricoMedico() {
-//     this.consultas = [];
-//     this.vacinas = [];
-//     this.procedimentos = [];
-// };
-
-// vacinar TODOS
-
-// consultar TODOS
-
-// realizarProcedimento TODOS
+function HistoricoMedico() {
+    this.consultas = [];
+    this.vacinas = [];
+    this.procedimentos = [];
+};
 
 // miar GATOS
 Gatos.prototype.miar = function miar() {
@@ -65,6 +59,24 @@ AnimaisExoticos.prototype.ehAdulto = function ehAdulto() {
     } else {
         console.log(`Este ${this.especie} chamado ${this.nome} não é adulto`);
     }
+}
+
+// vacinar TODOS
+HistoricoMedico.prototype.vacinar = function vacinar(vacina) {
+    this.vacinas.push(vacina);
+    console.log(`A Vacina ${vacina} foi adicionada ao histórico médico do bichinho`);
+}
+
+// consultar TODOS
+HistoricoMedico.prototype.consultar = function consultar(data) {
+    this.consultas.push(data);
+    console.log(`A consulta para o dia ${data} foi agendada com sucesso`);
+}
+
+// realizarProcedimento TODOS
+HistoricoMedico.prototype.realizarProcedimento = function realizarProcedimento(tipo, motivo) {
+    this.procedimentos.push({tipo, motivo});
+    console.log(`O procedimento ${tipo} foi adicionado ao histórico médico pelo motivo ${motivo}`);
 }
 
 module.exports = { Gatos, Cachorros, AnimaisExoticos }
