@@ -2,10 +2,10 @@
 
 Você foi escalada para criar o sistema para uma clínica veterinária.
 Para isso, precisará criar funções construtoras no modelo `Pseudoclassical Instantiation` para quatro tipos e objeto diferentes: 
-- [ ] Gatos
-- [ ] Cachorros
-- [ ] Animais exóticos
-- [ ] Histórico médico
+- [X] Gatos
+- [X] Cachorros
+- [X] Animais exóticos
+- [X] Histórico médico
 
 1. Exemplo de `Gato`
 ```javascript
