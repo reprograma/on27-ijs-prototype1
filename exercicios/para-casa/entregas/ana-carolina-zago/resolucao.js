@@ -6,11 +6,12 @@ function Gatos(nome, idade, cor, castrado, historico) {
     this.historico = historico;
 };
 
-function Cachorros(nome, idade, cor, castrado, historico) {
+function Cachorros(nome, idade, cor, castrado, raça, historico) {
     this.nome = nome;
     this.idade = idade;
     this.cor = cor;
     this.castrado = castrado;
+    this.raça = raça;
     this.historico = historico;
 };
 
@@ -23,10 +24,9 @@ function AnimaisExoticos(nome, idade, cor, especie, adulto, historico) {
     this.historico = historico;
 };
 
-function HistoricoMedico(consultas, vacinas, procedimentos) {
-    this.consultas;
-    this.vacinas;
-    this.procedimentos;
-    this.procedimentos;
+function HistoricoMedico() {
+    this.consultas = [];
+    this.vacinas = [];
+    this.procedimentos = [];
 };
 
