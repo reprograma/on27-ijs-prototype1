@@ -1,4 +1,4 @@
-// Importe as funções construtoras e os métodos (caso eles estejam em um arquivo separado)
+
 const { Gato, Cachorro, AnimalExotico } = require('./prototype'); 
 
 describe("funções construtoras e métodos estão funcionando", () => {
