@@ -15,14 +15,14 @@ function Cachorros(nome, idade, cor, castrado, raça) {
     // this.historico = historico;
 };
 
-// function AnimaisExoticos(nome, idade, cor, especie, adulto, historico) {
-//     this.nome = nome;
-//     this.idade = idade;
-//     this.cor = cor;
-//     this.especie = especie;
-//     this.adulto = adulto;
-//     this.historico = historico;
-// };
+function AnimaisExoticos(nome, idade, cor, especie, adulto, historico) {
+    this.nome = nome;
+    this.idade = idade;
+    this.cor = cor;
+    this.especie = especie;
+    this.adulto = adulto;
+    // this.historico = historico;
+};
 
 // function HistoricoMedico() {
 //     this.consultas = [];
@@ -47,5 +47,24 @@ Cachorros.prototype.latir = function latir() {
 }
 
 // ehAdulto ANIMAL EXOTICO
+AnimaisExoticos.prototype.ehAdulto = function ehAdulto() {
+    this.adulto = true;
 
-module.exports = { Gatos, Cachorros }
+    if(this.especie === "hamster" && this.idade < 2){
+        this.adulto = false;
+    }
+    if(this.especie === "papagaio" && this.idade < 36){
+        this.adulto = false;
+    }
+    if(this.especie === "calopsita" && this.idade < 18) {
+        this.adulto = false;
+    }
+
+    if(this.adulto === true) {
+        console.log(`Este ${this.especie} chamado ${this.nome} é adulto`)
+    } else {
+        console.log(`Este ${this.especie} chamado ${this.nome} não é adulto`);
+    }
+}
+
+module.exports = { Gatos, Cachorros, AnimaisExoticos }
