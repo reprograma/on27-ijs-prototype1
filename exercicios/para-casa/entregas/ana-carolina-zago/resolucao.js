@@ -79,4 +79,4 @@ HistoricoMedico.prototype.realizarProcedimento = function realizarProcedimento(t
     console.log(`O procedimento ${tipo} foi adicionado ao histórico médico pelo motivo ${motivo}`);
 }
 
-module.exports = { Gatos, Cachorros, AnimaisExoticos }
+module.exports = { Gatos, Cachorros, AnimaisExoticos, HistoricoMedico }
