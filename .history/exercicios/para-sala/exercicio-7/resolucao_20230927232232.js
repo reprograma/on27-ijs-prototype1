@@ -51,4 +51,3 @@ Account.prototype.closeAccount = function closeAccount() {
 }
 
 module.exports = { Account }
-
