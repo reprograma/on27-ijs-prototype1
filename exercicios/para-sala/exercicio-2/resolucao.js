@@ -14,7 +14,7 @@ function raiseSalary(percent) {
 function Employee(firstname, lastname, salary) {
 	let employee = {};
 
-	employee.id = generateID();
+	employee.id = generateID(); // parenteses pós função pq queremos apenas o retorno da função e não a sua implementação
 	employee.firstname = firstname;
 	employee.lastname = lastname;
 	employee.salary = salary;
