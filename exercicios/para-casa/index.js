@@ -1,3 +1,5 @@
+//exercicios feitos pela profa aqui
+
 const { Gato, Cachorro, AnimalExotico } = require("./resolucao.js");
 
 cachorro1 = new Cachorro("Aslam", 42, "preto", false, "srd");
