@@ -1,8 +1,7 @@
-const { Account } = require("./resolucao.js");
+const { Account } = require('./resolucao');
 
-luaraAccount = Account(123, 1234, 1000);
+luaraAccount = Account(123, 0001, 1000);
 luaraAccount.credit(2000);
 luaraAccount.debit(500);
-outraconta = Account(456, 1234, 100);
-luaraAccount.transferTo(outraconta, 500);
-luaraAccount.transferTo(outraconta, 6500);
+outraconta = Account(456, 0001, 100);
+luaraAccount.transferTo(outraconta, 100000);

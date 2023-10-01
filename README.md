@@ -1,12 +1,12 @@
 <div align="center">
 
-![Logo Dark](assets/reprograma-fundos-escuros.svg#gh-dark-mode-only)
+  ![Logo Dark](assets/reprograma-fundos-escuros.svg#gh-dark-mode-only)
 
 </div>
 
 <div align="center">
 
-![Logo Light](assets/reprograma-fundos-claros.png#gh-light-mode-only)
+  ![Logo Light](assets/reprograma-fundos-claros.png#gh-light-mode-only)
 
 </div>
 
@@ -15,13 +15,11 @@
 Turma Online 28 - Imersão JavaScript | Semana 02 | 2023 | Professora: [Luara Kerlen](https://github.com/luarakerlen)
 
 ### Instruções
-
 Antes de começar, vamos organizar nosso setup.
-
-- Fork esse repositório
-- Clone o fork na sua máquina (Para isso basta abrir o seu terminal e digitar `git clone url-do-seu-repositorio-forkado`)
-- Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
-- [Add outras intrucoes caso necessario]
+* Fork esse repositório 
+* Clone o fork na sua máquina (Para isso basta abrir o seu terminal e digitar `git clone url-do-seu-repositorio-forkado`)
+* Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
+* [Add outras intrucoes caso necessario]
 
 ### Objetivo
 
@@ -69,11 +67,11 @@ Dessa maneira nós podemos simplesmente criar um objeto por colocar propriedades
 
 ```javascript
 let animal = {
-	type: "cachorro",
-	name: "Aslam",
+	type: 'cachorro',
+	name: 'Aslam',
 	age: 3,
-	hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
-	"can I have": true,
+	hobbies: ['brincar com bolinha', 'latir pras motos', 'comer'],
+	'can I have': true,
 };
 ```
 
@@ -82,11 +80,11 @@ ou
 ```javascript
 let animal = {};
 
-animal.type = "cachorro";
-animal.name = "Aslam";
+animal.type = 'cachorro';
+animal.name = 'Aslam';
 animal.age = 3;
-animal.hobbies = ["brincar com bolinha", "latir pras motos", "comer"];
-animal["can I have"] = true;
+animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
+animal['can I have'] = true;
 ```
 
 As duas maneiras de criar um objeto são válidas. Nós vamos utilizar como está na segunda maneira, mas ambas estão corretas.
@@ -106,10 +104,10 @@ _Como propriedade:_
 
 ```javascript
 let animal = {
-	type: "cachorro",
+	type: 'cachorro',
 	//...
 	eat: function eat() {
-		console.log("O animal está comendo");
+		console.log('O animal está comendo');
 	},
 };
 ```
@@ -118,10 +116,10 @@ ou
 
 ```javascript
 let animal = {
-	type: "cachorro",
+	type: 'cachorro',
 	//...
 	eat() {
-		console.log("O animal está comendo");
+		console.log('O animal está comendo');
 	},
 };
 ```
@@ -131,10 +129,10 @@ _Expressão de Função:_
 ```javascript
 let animal = {};
 
-animal.type = "cachorro";
+animal.type = 'cachorro';
 //...
 animal.eat = function eat() {
-	console.log("O animal está comendo");
+	console.log('O animal está comendo');
 };
 ```
 
@@ -142,14 +140,14 @@ _Funções pré-existentes:_
 
 ```javascript
 function eat() {
-	console.log("O animal está comendo");
+	console.log('O animal está comendo');
 }
 
 let animal = {};
 
-(animal.type = "cachorro"),
-	//...
-	(animal.eat = eat);
+animal.type = 'cachorro',
+//...
+animal.eat = eat;
 ```
 
 É comum que métodos precisem acessar informações que estão armazenadas em outras propriedades do objeto.
@@ -157,11 +155,11 @@ Para acessar o objeto (suas propriedades), o método pode usar a palavra `this`:
 
 ```javascript
 let animal = {
-	type: "cachorro",
-	name: "Aslam",
+	type: 'cachorro',
+	name: 'Aslam',
 	age: 3,
-	hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
-	"can I have": true,
+	hobbies: ['brincar com bolinha', 'latir pras motos', 'comer'],
+	'can I have': true,
 	eat: function eat() {
 		console.log(`O ${this.type} chamado ${this.name} está comendo`);
 	},
@@ -173,11 +171,11 @@ ou
 ```javascript
 let animal = {};
 
-animal.type = "cachorro";
-animal.name = "Aslam";
+animal.type = 'cachorro';
+animal.name = 'Aslam';
 animal.age = 3;
-animal.hobbies = ["brincar com bolinha", "latir pras motos", "comer"];
-animal["can I have"] = true;
+animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
+animal['can I have'] = true;
 
 animal.eat = function eat() {
 	console.log(`O ${this.type} chamado ${this.name} está comendo`);
@@ -206,8 +204,8 @@ Nós podemos colocar todo esse código dentro de uma função, para que seja pos
 function Animal() {
 	let animal = {};
 
-	animal.type = "cachorro";
-	animal.name = "Aslam";
+	animal.type = 'cachorro';
+	animal.name = 'Aslam';
 	animal.age = 3;
 
 	animal.eat = function eat() {
@@ -220,8 +218,8 @@ function Animal() {
 const animal1 = Animal();
 const animal2 = Animal();
 
-console.log("Animal 1: ", animal1);
-console.log("Animal 2: ", animal2);
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
 ```
 
 Porém, dessa maneira, todos os objetos criados a partir da função Animal têm os mesmos dados, pois eles estão fixos dentro da função.
@@ -255,11 +253,11 @@ function Animal(type, name, age) {
 	return animal;
 }
 
-const animal1 = Animal("cachorro", "Aslam", 3);
-const animal2 = Animal("gato", "Caju", 1);
+const animal1 = Animal('cachorro', 'Aslam', 3);
+const animal2 = Animal('gato', 'Caju', 1);
 
-console.log("Animal 1: ", animal1);
-console.log("Animal 2: ", animal2);
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
 
 animal1.eat(); //O cachorro chamado Aslam está comendo
 animal2.eat(); //O gato chamado Caju está comendo
@@ -271,9 +269,8 @@ Em resumo:
 Uma função construtora é função especial que cria e inicializa uma instância de um objeto.
 O propósito de um construtor é criar um novo objeto a partir das propriedades existentes de outro objeto, sem que haja repetição de código.
 
-> IMPORTANTE
-> Perceba que os parâmetros recebidos podem ter nomes que divergem dos nomes das propriedades dos objetos, exemplo:
-
+>IMPORTANTE
+Perceba que os parâmetros recebidos podem ter nomes que divergem dos nomes das propriedades dos objetos, exemplo:
 ```javascript
 function Animal(tipoDoAnimal, nomeCompleto, idadeEmMeses) {
 	let animal = {};
@@ -289,17 +286,17 @@ function Animal(tipoDoAnimal, nomeCompleto, idadeEmMeses) {
 	return animal;
 }
 
-const animal1 = Animal("cachorro", "Aslam", 3);
-const animal2 = Animal("gato", "Caju", 1);
+const animal1 = Animal('cachorro', 'Aslam', 3);
+const animal2 = Animal('gato', 'Caju', 1);
 
-console.log("Animal 1: ", animal1);
-console.log("Animal 2: ", animal2);
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
 
 animal1.eat(); //O cachorro chamado Aslam está comendo
 animal2.eat(); //O gato chamado Caju está comendo
 ```
 
-> Embora isso não esteja errado, geralmente utilizamos o mesmo nome, por questões de Clean Code. Mas é importante saber que um é o parâmetro da função e o outro é a propriedade do objeto.
+>Embora isso não esteja errado, geralmente utilizamos o mesmo nome, por questões de Clean Code. Mas é importante saber que um é o parâmetro da função e o outro é a propriedade do objeto.
 
 #### → Vamos aplicar? [Exercício 2](/exercicios/para-sala/exercicio-2)
 
@@ -337,11 +334,11 @@ Nesse caso, primeiro criamos uma função. Dentro da função criamos um objeto 
 Toda vez que a função for chamada teremos acesso às propriedades e métodos que foram criados.
 
 ```javascript
-const animal1 = Animal("cachorro", "Aslam", 3);
-const animal2 = Animal("gato", "Caju", 1);
+const animal1 = Animal('cachorro', 'Aslam', 3);
+const animal2 = Animal('gato', 'Caju', 1);
 
-console.log("Animal 1: ", animal1);
-console.log("Animal 2: ", animal2);
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
 
 animal1.eat(); //O cachorro chamado Aslam está comendo
 animal2.eat(); //O gato chamado Caju está comendo
@@ -380,7 +377,7 @@ function Animal(type, name, age) {
 	return animal;
 }
 
-const animal1 = Animal("cachorro", "Aslam", 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 animal1.eat(); //O cachorro chamado Aslam está comendo
 
 Animal = (type, name, age) => {
@@ -397,7 +394,7 @@ Animal = (type, name, age) => {
 	return animal;
 };
 
-const animal2 = Animal("gato", "Caju", 1);
+const animal2 = Animal('gato', 'Caju', 1);
 animal2.eat(); //Caju é um animal do tipo gato está comendo
 ```
 
@@ -445,12 +442,12 @@ function Animal(type, name, age) {
 Cada objeto criado por instanciação compartilhada funcional terá um ponteiro para os mesmos métodos sem duplicação.
 
 ```javascript
-const animal1 = Animal("cachorro", "Aslam", 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1);
 animal1.eat();
 animal1.sleep(10);
 
-const animal2 = Animal("gato", "Caju", 1);
+const animal2 = Animal('gato', 'Caju', 1);
 console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
@@ -493,14 +490,14 @@ function Animal(type, name, age) {
 	return animal;
 }
 
-const animal1 = Animal("cachorro", "Aslam", 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 animal1.eat(); //O cachorro chamado Aslam está comendo
 
 animalMethods.eat = function eat() {
 	console.log(`${this.name} é um animal do tipo ${this.type} e está comendo`);
 };
 
-const animal2 = Animal("gato", "Caju", 1);
+const animal2 = Animal('gato', 'Caju', 1);
 animal2.eat(); //Caju é um animal do tipo gato está comendo
 ```
 
@@ -509,19 +506,18 @@ animal2.eat(); //Caju é um animal do tipo gato está comendo
 </p>
 
 #### Object.create()
-
 Antes de continuarmos, vamos entender esse método do JavaScript, o `Object.create()`.
 Em resumo, o `Object.create()` permite que você crie um objeto a partir de outro, então quando forem buscadas propriedades que não existem nesse objeto criado, o código olhará para o objeto 'pai' que deu origem a ele, em busca dessa propriedade faltante.
 
 ```javascript
 const parent = {
-	name: "Marcela",
+	name: 'Marcela',
 	age: 35,
-	heritage: "Brasileira",
+	heritage: 'Brasileira',
 };
 
 const child = Object.create(parent);
-child.name = "Valentina";
+child.name = 'Valentina';
 child.age = 7;
 
 console.log(parent.name); // Marcela
@@ -577,12 +573,12 @@ Porém, no momento de criar nosso objeto dentro da nossa função construtora, a
 Dessa maneira, não precisamos definir os métodos dentro da função construtora, pois quando os métodos forem chamados, o código olhará diretamente para o objeto de métodos que deu origem ao objeto da função construtora.
 
 ```javascript
-const animal1 = Animal("cachorro", "Aslam", 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1);
 animal1.eat();
 animal1.sleep(10);
 
-const animal2 = Animal("gato", "Caju", 1);
+const animal2 = Animal('gato', 'Caju', 1);
 console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
@@ -600,7 +596,7 @@ Acontece que o JavaScript possui uma solução pra isso: `prototype`.
 "O que é o `prototype`?", vocês me perguntam.
 
 Simplificando, toda função que criamos no JavaScript tem uma propriedade, chamada `prototype`, que faz referência a um **objeto**.
-Ou seja, _a gente já tem um objeto prontinho pra ser usado_. Não precisamos criar outro.
+Ou seja, *a gente já tem um objeto prontinho pra ser usado*. Não precisamos criar outro.
 
 ```javascript
 function qualquerFuncao() {}
@@ -610,7 +606,7 @@ console.log(qualquerFuncao.prototype); //{}
 
 ### Prototypal Instantiation
 
-Então, ao invés de criar um objeto novo pra colocar os nossos métodos, como estamos criando o `animalMethods`, podemos colocar todos esses métodos dentro do objeto que o JavaScript já nos dá: o `Animal.prototype`. E daí então, ao invés de passarmos o `animalMethods` dentro do `Object.create()`, passamos o `Animal.prototype`:
+Então, ao invés de criar um método novo pra colocar os nossos métodos, como estamos criando o `animalMethods`, podemos colocar todos esses métodos dentro do objeto que o JavaScript já nos dá: o `Animal.prototype`. E daí então, ao invés de passarmos o `animalMethods` dentro do `Object.create()`, passamos o `Animal.prototype`:
 
 ```javascript
 function Animal(type, name, age) {
@@ -642,12 +638,12 @@ Pronto! Temos o nosso objeto de métodos da mesma maneira, mas é um objeto que 
 Toda a nossa funcionalidade ainda é a mesma, mas agora ao invés de ter que gerenciar um objeto separado para todos os métodos, podemos simplesmente usar outro objeto que vem embutido na própria função `Animal`, a `Animal.prototype`.
 
 ```javascript
-const animal1 = Animal("cachorro", "Aslam", 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1);
 animal1.eat();
 animal1.sleep(10);
 
-const animal2 = Animal("gato", "Caju", 1);
+const animal2 = Animal('gato', 'Caju', 1);
 console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
@@ -659,7 +655,6 @@ animal2.sleep(10);
 
 Vamos entrar um pouco mais fundo agora.
 Até esse ponto, nós já sabemos:
-
 1. Como criar uma função construtora.
 2. Como adicionar métodos ao `prototype`da função.
 3. Como usar o `Object.create()` para delegar um objeto de origem que fornecerá as propriedades que o objeto originado não possua.
@@ -669,7 +664,6 @@ Tendo entendido tudo isso, conseguimos buscar agora uma maneira mais simples de 
 O que é bom sobre a abordagem lenta e metódica que adotamos para chegar aqui, é que agora você terá uma compreensão profunda de exatamente o que acontece nos bastidores do JavaScript com a palavra-chave `new`.
 
 Olhando novamente para a Função construtora no nosso `Animal`, as duas partes mais importantes são:
-
 - Criar o objeto
 - Retornar o objeto
 
@@ -704,8 +698,8 @@ function Animal(type, name, age) {
 	//return this; //Retorno do objeto
 }
 
-const animal1 = new Animal("cachorro", "Aslam", 3);
-const animal2 = new Animal("gato", "Caju", 1);
+const animal1 = new Animal('cachorro', 'Aslam', 3);
+const animal2 = new Animal('gato', 'Caju', 1);
 
 console.log(animal1);
 console.log(animal2);
@@ -733,8 +727,8 @@ Animal.prototype.sleep = function sleep(amount) {
 	console.log(`Energia atual: ${this.energy}`);
 };
 
-const animal1 = new Animal("cachorro", "Aslam", 3);
-const animal2 = new Animal("gato", "Caju", 1);
+const animal1 = new Animal('cachorro', 'Aslam', 3);
+const animal2 = new Animal('gato', 'Caju', 1);
 
 console.log(animal1);
 console.log(animal2);
@@ -751,7 +745,7 @@ function Animal(type, name, age) {
 	this.energy = 0;
 }
 
-const animal1 = Animal("cachorro", "Aslam", 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1); //undefined
 ```
 
@@ -794,17 +788,14 @@ O que isso significa é que mesmo que a versão inicial do JavaScript não supor
 - [Material](/material)
 
 ### Links Úteis
-
 #### Objects
-
 - [Object: the basics](https://javascript.info/object-basics)
-  - [Objects](https://javascript.info/object)
-  - [Object methods, "this"](https://javascript.info/object-methods)
+	- [Objects](https://javascript.info/object)
+	- [Object methods, "this"](https://javascript.info/object-methods)
 - [JavaScript Objects](https://www.programiz.com/javascript/object)
 - [JavaScript Methods and this Keyword](https://www.programiz.com/javascript/methods)
 
 #### Prototype
-
 - [A Beginner’s Guide to JavaScript’s Prototype](https://www.freecodecamp.org/news/a-beginners-guide-to-javascripts-prototype/)
 - [Instantiation Patterns in JavaScript (por Jennifer Bland)](https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b)
 - [Instantiation Patterns in JavaScript (por Taylor Shephard)](https://medium.com/@taylorshephard1/instantiation-patterns-in-javascript-7f9463b95839)
