@@ -18,7 +18,7 @@ function addBenefits(benefit) {
 function removeBenefits(benefit) {
   let index = this.benefits.indexOf(benefit);
 
-  if(index === -1) {
+  if(index != -1) {
     console.log('Benefício inválido');
   } else {
     this.benefits = this.benefits.filter(currentBenefit => currentBenefit !== benefit);
