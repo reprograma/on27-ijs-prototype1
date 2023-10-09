@@ -1,3 +1,4 @@
+
 function Account(numberAccount, agencyNumber, balance) {
   let account = Object.create(Account.prototype);
 
@@ -31,5 +32,12 @@ Account.prototype.transferTo = function transferTo(anotherAccount, amount) {
     throw 'Você não tem saldo suficiente para essa operação.'
   }
 }
+
+luaraAccount = Account(123, 0001, 1000);
+luaraAccount.credit(2000);
+luaraAccount.debit(10000);
+
+outraconta = Account(456, 0001, 100);
+luaraAccount.transferTo(outraconta, 500);
 
 module.exports = { Account }
