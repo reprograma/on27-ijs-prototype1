@@ -28,7 +28,7 @@ function ExoticAnimal(name, age, color, species, adult) {
     this.age = age;
     this.color = color;
     this.species = species;
-    this.adult = adult;
+    this.adult = this.ehAdulto();
     this.historic = new MedicalHistory();
 }
 
@@ -51,7 +51,7 @@ function MedicalHistory() {
 }
 
 MedicalHistory.prototype.consult = function(date){
-    this.queries.push(date);
+    this.queries.unshift(date)
     console.log(`Consulta registrada em ${date}`);
 }
 
@@ -60,9 +60,11 @@ MedicalHistory.prototype.vaccinate = function(vaccines){
     console.log(`Vacina ${vaccines} aplicada`);
 }
 
-MedicalHistory.prototype.procedure = function(procedures){
-    this.procedures.push(procedures);
+MedicalHistory.prototype.procedure = function(type, reason){
+    let procedure = {
+        type: type,
+        reason: reason
+    };
+    this.procedures.push(procedure);
     console.log(`Procedimento ${procedures} registrado`);
 }
-
-module.exports = { Cat, Dog, ExoticAnimal, MedicalHistory };
